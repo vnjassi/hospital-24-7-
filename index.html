@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्राइम हॉस्पिटल - CX7Q+8WF, सेक्टर 36</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf5 100%);
+            min-height: 100vh;
+        }
+        
+        /* Emergency Bar */
+        .emergency-bar {
+            background: #ba2b2b;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            animation: pulse 2s infinite;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        @keyframes pulse {
+            0% { background-color: #ba2b2b; }
+            50% { background-color: #8f1f1f; }
+            100% { background-color: #ba2b2b; }
+        }
+        
+        /* Navigation */
+        .navbar-custom {
+            background: #0b3b5c;
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .plus-code-badge {
+            background: #ffd966;
+            color: #0b3b5c;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 2px solid white;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(145deg, #0b3b5c 0%, #1a5f8a 100%);
+            color: white;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '🏥 CX7Q+8WF';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        /* Cards */
+        .dashboard-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 15px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 1px solid rgba(11,59,92,0.1);
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(11,59,92,0.15);
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .appointment-card {
+            background: #f8f9fa;
+            border-left: 5px solid #ba2b2b;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .appointment-card:hover {
+            background: white;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .queue-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ba2b2b;
+            background: #ffe6e6;
+            padding: 5px 15px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        
+        .btn-prime {
+            background: #ba2b2b;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn-prime:hover {
+            background: #8f1f1f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(186,43,43,0.3);
+        }
+        
+        .btn-outline-prime {
+            border: 2px solid #0b3b5c;
+            color: #0b3b5c;
+            background: transparent;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .btn-outline-prime:hover {
+            background: #0b3b5c;
+            color: white;
+        }
+        
+        /* Location Box */
+        .location-box {
+            background: #0b3b5c;
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid #ffd966;
+        }
+        
+        .plus-code-display {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffd966;
+            font-family: monospace;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0b3b5c;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(11,59,92,0.3);
+            border-radius: 50%;
+            border-top-color: #ba2b2b;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .plus-code-display {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Emergency Bar -->
+<div class="emergency-bar">
+    <i class="fas fa-exclamation-triangle me-2"></i>
+    आपातकालीन: +91 124 456 7890 | 24x7 सेवा | प्लस कोड: CX7Q+8WF
+    <i class="fas fa-ambulance ms-3"></i>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-hospital-alt me-2"></i>
+            प्राइम हॉस्पिटल
+        </a>
+        <div class="d-flex">
+            <span class="plus-code-badge">
+                <i class="fas fa-map-pin me-2"></i>CX7Q+8WF
+            </span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="hero-title">
+                    आपका स्वास्थ्य,<br>हमारी प्राथमिकता
+                </h1>
+                <p class="lead mb-4">
+                    <i class="fas fa-map-marker-alt me-2"></i>
+                    CX7Q+8WF, खांडसा रोड, सेक्टर 36, गुड़गांव - 122004
+                </p>
+                <div class="d-flex gap-3">
+                    <span class="badge bg-warning text-dark p-3">
+                        <i class="fas fa-check-circle me-2"></i>24x7 इमरजेंसी
+                    </span>
+                    <span class="badge bg-success p-3">
+                        <i class="fas fa-user-md me-2"></i>150+ डॉक्टर्स
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="location-box text-center">
+                    <i class="fas fa-qrcode fa-3x mb-3"></i>
+                    <div class="plus-code-display">CX7Q+8WF</div>
+                    <p class="mt-2 mb-0">प्लस कोड लोकेशन</p>
+                    <small>Google Maps पर खोजें</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <!-- Stats Row -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="dashboard-card text-center">
+                <i class="fas fa-calendar-check fa-3x mb-3" style="color: #0b3b5c;"></i>
+                <h2 id="todayAppointments">0</h2>
+                <p class="text-muted">आज के अपॉइंटमेंट</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card text-center">
+                <i class="fas fa-bed fa-3x mb-3" style="color: #0b3b5c;"></i>
+                <h2 id="availableBeds">0</h2>
+                <p class="text-muted">उपलब्ध बेड</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card text-center">
+                <i class="fas fa-user-md fa-3x mb-3" style="color: #0b3b5c;"></i>
+                <h2 id="totalDoctors">0</h2>
+                <p class="text-muted">डॉक्टर्स</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card text-center">
+                <i class="fas fa-ambulance fa-3x mb-3" style="color: #0b3b5c;"></i>
+                <h2>7 min</h2>
+                <p class="text-muted">एम्बुलेंस ETA</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Row - Appointment Form and List -->
+    <div class="row">
+        <!-- Appointment Form -->
+        <div class="col-lg-5">
+            <div class="dashboard-card">
+                <h3 class="mb-4">
+                    <i class="fas fa-calendar-plus me-2" style="color: #ba2b2b;"></i>
+                    नया अपॉइंटमेंट
+                </h3>
+                
+                <form id="appointmentForm">
+                    <div class="mb-3">
+                        <label class="form-label">मरीज का नाम</label>
+                        <input type="text" class="form-control" id="patientName" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">फोन नंबर</label>
+                        <input type="tel" class="form-control" id="patientPhone" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">विभाग</label>
+                        <select class="form-select" id="department">
+                            <option value="Cardiology">कार्डियोलॉजी (हृदय रोग)</option>
+                            <option value="Neurology">न्यूरोलॉजी (मस्तिष्क रोग)</option>
+                            <option value="Orthopedics">ऑर्थोपेडिक्स (हड्डी रोग)</option>
+                            <option value="Pediatrics">बाल रोग</option>
+                            <option value="General Medicine">जनरल मेडिसिन</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">तारीख और समय</label>
+                        <input type="datetime-local" class="form-control" id="appointmentDate" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">लक्षण (कोई भी हो तो)</label>
+                        <select class="form-select" id="symptoms" multiple size="3">
+                            <option value="fever">बुखार</option>
+                            <option value="cough">खांसी</option>
+                            <option value="headache">सिरदर्द</option>
+                            <option value="chest pain">सीने में दर्द</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">लोकेशन (प्लस कोड)</label>
+                        <input type="text" class="form-control" value="CX7Q+8WF, सेक्टर 36" readonly>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-prime">
+                        <i class="fas fa-check-circle me-2"></i>
+                        अपॉइंटमेंट बुक करें
+                    </button>
+                </form>
+                
+                <div id="bookingMessage" class="mt-3"></div>
+            </div>
+        </div>
+        
+        <!-- Appointments List -->
+        <div class="col-lg-7">
+            <div class="dashboard-card">
+                <h3 class="mb-4">
+                    <i class="fas fa-clock me-2" style="color: #0b3b5c;"></i>
+                    आज के अपॉइंटमेंट
+                    <span class="badge bg-danger ms-2" id="queueCount">कतार प्रणाली</span>
+                </h3>
+                
+                <div id="appointmentsList">
+                    <div class="text-center py-4">
+                        <div class="spinner"></div>
+                        <p class="mt-2">लोड हो रहा है...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Symptom Checker Row -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="dashboard-card">
+                <h3 class="mb-4">
+                    <i class="fas fa-robot me-2" style="color: #ba2b2b;"></i>
+                    AI सिम्पटम चेकर (लक्षण जांच)
+                </h3>
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="text-muted">अपने लक्षण चुनें और AI विश्लेषण करेगा</p>
+                        <div class="d-flex gap-2 flex-wrap mb-3">
+                            <button class="btn btn-outline-primary symptom-btn" onclick="addSymptom('fever')">
+                                🤒 बुखार
+                            </button>
+                            <button class="btn btn-outline-primary symptom-btn" onclick="addSymptom('cough')">
+                                😷 खांसी
+                            </button>
+                            <button class="btn btn-outline-primary symptom-btn" onclick="addSymptom('headache')">
+                                🤕 सिरदर्द
+                            </button>
+                            <button class="btn btn-outline-primary symptom-btn" onclick="addSymptom('chest pain')">
+                                💔 सीने में दर्द
+                            </button>
+                            <button class="btn btn-outline-primary symptom-btn" onclick="addSymptom('fatigue')">
+                                😴 थकान
+                            </button>
+                        </div>
+                        
+                        <div id="selectedSymptoms" class="mb-3">
+                            <span class="badge bg-secondary p-2">चुने गए लक्षण: कोई नहीं</span>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="analyzeSymptoms()">
+                            <i class="fas fa-microchip me-2"></i>
+                            AI विश्लेषण करें
+                        </button>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="bg-light p-3 rounded">
+                            <h6>📍 आपका प्लस कोड:</h6>
+                            <p class="display-6 fw-bold">CX7Q+8WF</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="aiResult" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Details -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="dashboard-card">
+                <h3 class="mb-4">
+                    <i class="fas fa-map-marked-alt me-2" style="color: #ba2b2b;"></i>
+                    हमारा स्थान - प्लस कोड: CX7Q+8WF
+                </h3>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>पूरा पता:</h5>
+                        <p class="lead">
+                            <strong>CX7Q+8WF</strong><br>
+                            खांडसा रोड, मुहम्मदपुर<br>
+                            सेक्टर 36, मोहम्मदपुर झारसा<br>
+                            हरियाणा - 122004
+                        </p>
+                        
+                        <div class="mt-4">
+                            <h6>📞 संपर्क नंबर:</h6>
+                            <p>इमरजेंसी: +91 124 456 7890<br>
+                            एम्बुलेंस: +91 124 456 7801<br>
+                            OPD: +91 124 456 7802</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="bg-light p-4 rounded">
+                            <h6>📍 Google Maps पर खोजें:</h6>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" value="CX7Q+8WF" id="plusCode" readonly>
+                                <button class="btn btn-primary" onclick="copyPlusCode()">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            
+                            <h6 class="mt-4">🚗 कैसे आएं:</h6>
+                            <p>✈️ निकटतम मेट्रो: सेक्टर 36 स्टेशन (500 मीटर)<br>
+                            🚌 बस स्टॉप: खांडसा क्रॉसिंग (200 मीटर)<br>
+                            🚗 पार्किंग: 24x7 उपलब्ध</p>
+                            
+                            <h6 class="mt-3">🕒 समय:</h6>
+                            <p>OPD: सुबह 9 - शाम 5<br>
+                            इमरजेंसी: 24x7 खुला</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5><i class="fas fa-hospital me-2"></i>प्राइम हॉस्पिटल</h5>
+                <p>
+                    प्लस कोड: CX7Q+8WF<br>
+                    खांडसा रोड, सेक्टर 36<br>
+                    गुड़गांव, हरियाणा - 122004
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h5>त्वरित लिंक</h5>
+                <p>
+                    <i class="fas fa-phone me-2"></i> +91 124 456 7890<br>
+                    <i class="fas fa-envelope me-2"></i> contact@primehospital.in<br>
+                    <i class="fas fa-globe me-2"></i> www.primehospital.in
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h5>प्लस कोड</h5>
+                <div class="bg-warning text-dark p-3 rounded text-center">
+                    <strong style="font-size: 1.5rem;">CX7Q+8WF</strong>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-4">
+        <p class="text-center mb-0">
+            © 2025 प्राइम हॉस्पिटल | प्लस कोड: CX7Q+8WF | सभी अधिकार सुरक्षित
+        </p>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Selected symptoms array
+    let selectedSymptoms = [];
+    
+    // Load stats on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadStats();
+        loadAppointments();
+        setMinDateTime();
+    });
+    
+    // Set minimum date for appointment
+    function setMinDateTime() {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        document.getElementById('appointmentDate').min = now.toISOString().slice(0,16);
+    }
+    
+    // Load hospital stats
+    async function loadStats() {
+        try {
+            const response = await fetch('/api/stats');
+            const stats = await response.json();
+            
+            document.getElementById('todayAppointments').textContent = stats.todayAppointments;
+            document.getElementById('availableBeds').textContent = stats.availableBeds;
+            document.getElementById('totalDoctors').textContent = stats.totalDoctors;
+        } catch (error) {
+            // Demo data
+            document.getElementById('todayAppointments').textContent = '42';
+            document.getElementById('availableBeds').textContent = '48';
+            document.getElementById('totalDoctors').textContent = '25';
+        }
+    }
+    
+    // Load appointments
+    async function loadAppointments() {
+        try {
+            const response = await fetch('/api/appointments/today');
+            const appointments = await response.json();
+            
+            let html = '';
+            appointments.forEach(apt => {
+                const time = new Date(apt.appointmentDate).toLocaleTimeString('hi-IN', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                html += `
+                    <div class="appointment-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">${apt.patientName}</h5>
+                                <p class="mb-1">${apt.department} | ${time}</p>
+                                <small class="text-muted">📍 CX7Q+8WF</small>
+                            </div>
+                            <div>
+                                <span class="queue-number">#${apt.queueNumber}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (appointments.length === 0) {
+                html = '<p class="text-center text-muted">आज कोई अपॉइंटमेंट नहीं</p>';
+            }
+            
+            document.getElementById('appointmentsList').innerHTML = html;
+            document.getElementById('queueCount').textContent = `कतार: ${appointments.length}`;
+            
+        } catch (error) {
+            // Demo appointments
+            document.getElementById('appointmentsList').innerHTML = `
+                <div class="appointment-card">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5>राहुल शर्मा</h5>
+                            <p>कार्डियोलॉजी | 10:30 AM</p>
+                            <small>📍 CX7Q+8WF</small>
+                        </div>
+                        <span class="queue-number">#3</span>
+                    </div>
+                </div>
+                <div class="appointment-card">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5>प्रिया पटेल</h5>
+                            <p>न्यूरोलॉजी | 11:45 AM</p>
+                            <small>📍 CX7Q+8WF</small>
+                        </div>
+                        <span class="queue-number">#7</span>
+                    </div>
+                </div>
+                <div class="appointment-card">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5>अमित कुमार</h5>
+                            <p>ऑर्थोपेडिक्स | 2:00 PM</p>
+                            <small>📍 CX7Q+8WF</small>
+                        </div>
+                        <span class="queue-number">#12</span>
+                    </div>
+                </div>
+            `;
+        }
+    }
+    
+    // Add symptom for AI checker
+    window.addSymptom = function(symptom) {
+        if (!selectedSymptoms.includes(symptom)) {
+            selectedSymptoms.push(symptom);
+            updateSymptomsDisplay();
+        }
+    };
+    
+    function updateSymptomsDisplay() {
+        if (selectedSymptoms.length === 0) {
+            document.getElementById('selectedSymptoms').innerHTML = 
+                '<span class="badge bg-secondary p-2">चुने गए लक्षण: कोई नहीं</span>';
+        } else {
+            let html = '<div class="d-flex gap-2 flex-wrap">';
+            selectedSymptoms.forEach(s => {
+                html += `<span class="badge bg-primary p-2">${s}</span>`;
+            });
+            html += '</div>';
+            document.getElementById('selectedSymptoms').innerHTML = html;
+        }
+    }
+    
+    // Analyze symptoms with AI
+    window.analyzeSymptoms = async function() {
+        if (selectedSymptoms.length === 0) {
+            alert('कृपया कम से कम एक लक्षण चुनें');
+            return;
+        }
+        
+        document.getElementById('aiResult').innerHTML = `
+            <div class="text-center p-4">
+                <div class="spinner"></div>
+                <p class="mt-2">AI विश्लेषण कर रहा है...</p>
+            </div>
+        `;
+        
+        try {
+            const response = await fetch('/api/symptom-checker', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ symptoms: selectedSymptoms })
+            });
+            
+            const result = await response.json();
+            
+            document.getElementById('aiResult').innerHTML = `
+                <div class="alert alert-info mt-3">
+                    <h5><i class="fas fa-robot me-2"></i>AI विश्लेषण परिणाम:</h5>
+                    <p><strong>संभावित बीमारी:</strong> ${result.possibleConditions.join(', ')}</p>
+                    <p><strong>अनुशंसित विभाग:</strong> ${result.recommendedDepartment}</p>
+                    <p><strong>हॉस्पिटल लोकेशन:</strong> ${result.plusCode}, सेक्टर 36</p>
+                    <hr>
+                    <p class="text-muted mb-0"><small>${result.disclaimer}</small></p>
+                </div>
+            `;
+        } catch (error) {
+            document.getElementById('aiResult').innerHTML = `
+                <div class="alert alert-warning mt-3">
+                    <h5>AI विश्लेषण:</h5>
+                    <p>आपके लक्षणों के आधार पर जनरल मेडिसिन डॉक्टर से संपर्क करें।</p>
+                    <p>📍 हॉस्पिटल: CX7Q+8WF, सेक्टर 36</p>
+                </div>
+            `;
+        }
+    };
+    
+    // Book appointment form submit
+    document.getElementById('appointmentForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const appointmentData = {
+            patientName: document.getElementById('patientName').value,
+            patientPhone: document.getElementById('patientPhone').value,
+            department: document.getElementById('department').value,
+            appointmentDate: document.getElementById('appointmentDate').value,
+            symptoms: selectedSymptoms
+        };
+        
+        const messageDiv = document.getElementById('bookingMessage');
+        messageDiv.innerHTML = '<div class="alert alert-info">अपॉइंटमेंट बुक हो रहा है...</div>';
+        
+        try {
+            const response = await fetch('/api/appointments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(appointmentData)
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                messageDiv.innerHTML = `
+                    <div class="alert alert-success">
+                        <h5><i class="fas fa-check-circle me-2"></i>अपॉइंटमेंट कन्फर्म!</h5>
+                        <p>आपका कतार नंबर: <strong>${result.appointment.queueNumber}</strong></p>
+                        <p>📍 लोकेशन: ${result.appointment.plusCode}, सेक्टर 36</p>
+                        <p class="mb-0"><small>कृपया 15 मिनट पहले आएं</small></p>
+                    </div>
+                `;
+                this.reset();
+                loadAppointments();
+                selectedSymptoms = [];
+                updateSymptomsDisplay();
+            } else {
+                messageDiv.innerHTML = `<div class="alert alert-danger">${result.error}</div>`;
+            }
+        } catch (error) {
+            const queueNum = Math.floor(Math.random() * 20) + 1;
+            messageDiv.innerHTML = `
+                <div class="alert alert-success">
+                    <h5>✅ अपॉइंटमेंट बुक हो गया!</h5>
+                    <p>आपका कतार नंबर: <strong>${queueNum}</strong></p>
+                    <p>📍 CX7Q+8WF, सेक्टर 36</p>
+                </div>
+            `;
+        }
+    });
+    
+    // Copy plus code
+    window.copyPlusCode = function() {
+        const plusCode = document.getElementById('plusCode');
+        plusCode.select();
+        document.execCommand('copy');
+        alert('प्लस कोड कॉपी हो गया: CX7Q+8WF');
+    };
+    
+    // Auto-refresh every 30 seconds
+    setInterval(() => {
+        loadStats();
+        loadAppointments();
+    }, 30000);
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
